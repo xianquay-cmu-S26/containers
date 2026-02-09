@@ -1,0 +1,29 @@
+weCloud:
+  imageRegistry:
+    gcp: # TODO: Specify your GCP Artifact Registry
+
+profile:
+  # TODO: Specify values used in profile service manifests
+
+chat:
+  # TODO: Specify values used in chat service manifests
+  profileEndpoints: "spring-profile-service.default.svc.cluster.local" # This value should be used in configMap-chat.yaml
+
+
+login:
+  # TODO: Specify values used in login service manifests
+
+# Below are the values used in the redis service
+# DO NOT MODIFY
+redis:
+  image: "redis:7"
+  host: "redis-service"
+  password: "SuperSecretRedisPassword"
+  passwordSecret: "redis-secret"
+  passwordKey: "REDIS_PASSWORD"
+  port: "6379"
+  containerPort: 6379
+  topic: "/topic/messages"
+  service:
+    port: 6379
+    targetPort: 6379
