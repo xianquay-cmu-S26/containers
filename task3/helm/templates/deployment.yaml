@@ -19,18 +19,18 @@ spec:
         image: {{ .Values.weCloud.imageRegistry.gcp }}/{{ .Values.profile.repository }}/{{ .Values.profile.image }}:{{ .Values.profile.tag }}
         ports:
         - containerPort: 8080
-          env:
-            - name: MYSQL_DB_HOST
-              value: {{ .Values.profile.mysql.host }}
-            - name: MYSQL_DB_PORT
-              value: {{ .Values.profile.mysql.port }}
-            - name: MYSQL_DB_USER
-              valueFrom:
-                secretKeyRef:
-                  name: profile-secret
-                  key: mysql-username
-            - name: MYSQL_DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: profile-secret
-                  key: mysql-password
+        env:
+          - name: MYSQL_DB_HOST
+            value: {{ .Values.profile.mysql.host }}
+          - name: MYSQL_DB_PORT
+            value: {{ .Values.profile.mysql.port }}
+          - name: MYSQL_DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: profile-secret
+                key: mysql-username
+          - name: MYSQL_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: profile-secret
+                key: mysql-password

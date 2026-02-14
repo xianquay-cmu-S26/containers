@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: {{ .Values.profile.releaseName }}-config
 data:
-  MYSQL_DB_HOST: {{ .Values.profile.mysql.host }}
-  MYSQL_DB_PORT: {{ .Values.profile.mysql.port }}
+  MYSQL_DB_HOST: {{ .Values.profile.mysql.host | quote }}
+  MYSQL_DB_PORT: {{ .Values.profile.mysql.port | quote }}
