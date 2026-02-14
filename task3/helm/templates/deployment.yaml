@@ -21,9 +21,9 @@ spec:
         - containerPort: 8080
         env:
           - name: MYSQL_DB_HOST
-            value: {{ .Values.profile.mysql.host }}
+            value: {{ .Values.profile.mysql.host | quote }}
           - name: MYSQL_DB_PORT
-            value: {{ .Values.profile.mysql.port }}
+            value: {{ .Values.profile.mysql.port | quote }}
           - name: MYSQL_DB_USER
             valueFrom:
               secretKeyRef:
