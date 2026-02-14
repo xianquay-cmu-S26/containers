@@ -1,20 +1,17 @@
 weCloud:
   imageRegistry:
-    gcp: us-east1-docker.pkg.dev/gcp-docker-kubernetes-486700 # TODO: Specify your GCP Artifact Registry
+    gcp: us-east1-docker.pkg.dev/gcp-docker-kubernetes-486700 
 
 profile:
-  # TODO: Specify values used in deployment.yaml
   releaseName: "spring-profile"
   replicaCount: 3
   repository: profile-service
   image: clouduser/profile-service
   tag: "0.0.1"
-  # TODO: Specify values used in service.yaml
   service:
     type: LoadBalancer
     port: 80
     targetPort: 8080
-  # TODO: Specify values for MySQL environment variables
   mysql:
     host: "mysql-profile.default.svc.cluster.local"
     secretName: "profile-secret"

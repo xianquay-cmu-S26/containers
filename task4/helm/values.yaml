@@ -1,17 +1,60 @@
 weCloud:
   imageRegistry:
-    gcp: # TODO: Specify your GCP Artifact Registry
+    gcp: us-east1-docker.pkg.dev/gcp-docker-kubernetes-486700 
 
 profile:
-  # TODO: Specify values used in profile service manifests
+  releaseName: "spring-profile"
+  replicaCount: 3
+  repository: profile-service
+  image: clouduser/profile-service
+  tag: "0.0.1"
+  service:
+    type: NodePort
+    port: 80
+    targetPort: 8080
+  mysql:
+    host: "mysql-profile.default.svc.cluster.local"
+    secretName: "profile-secret"
+    user: "mysql-username"
+    password: "mysql-password"
+    port: "3306"
+
 
 chat:
-  # TODO: Specify values used in chat service manifests
-  profileEndpoints: "spring-profile-service.default.svc.cluster.local" # This value should be used in configMap-chat.yaml
-
+  profileEndpoints: "spring-profile-service.default.svc.cluster.local" 
+  releaseName: "spring-chat"
+  replicaCount: 3
+  repository: profile-service
+  image: clouduser/chat-service
+  tag: "0.0.1"
+  service:
+    type: NodePort
+    port: 80
+    targetPort: 8080
+  mysql:
+    host: "mysql-chat.default.svc.cluster.local"
+    secretName: "chat-secret"
+    user: "mysql-username"
+    password: "mysql-password"
+    port: "3306"
 
 login:
-  # TODO: Specify values used in login service manifests
+  chatEndpoints: "spring-chat-service.default.svc.cluster.local"
+  releaseName: "spring-login"
+  replicaCount: 3
+  repository: profile-service
+  image: clouduser/login-service
+  tag: "0.0.1"
+  service:
+    type: NodePort
+    port: 80
+    targetPort: 8080
+  mysql:
+    host: "mysql-login.default.svc.cluster.local"
+    secretName: "login-secret"
+    user: "mysql-username"
+    password: "mysql-password"
+    port: "3306"
 
 # Below are the values used in the redis service
 # DO NOT MODIFY

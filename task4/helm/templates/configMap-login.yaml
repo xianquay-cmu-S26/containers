@@ -1,1 +1,8 @@
-# TODO: Implement the configMap for login service
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.login.releaseName }}-config
+data:
+  MYSQL_DB_HOST: {{ .Values.login.mysql.host | quote }}
+  MYSQL_DB_PORT: {{ .Values.login.mysql.port | quote }}
+  LIST_OF_CHAT_ENDPOINTS: {{ .Values.login.chatEndpoints | quote }}

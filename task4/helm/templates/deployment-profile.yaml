@@ -1,1 +1,36 @@
-# TODO: Implement the deployment configuration for the profile service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.profile.releaseName }}-deployment
+  labels:
+    app: {{ .Values.profile.releaseName }}
+spec:
+  replicas: {{ .Values.profile.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.profile.releaseName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.profile.releaseName }}
+    spec:
+      containers:
+      - name: {{ .Values.profile.releaseName }}-container
+        image: {{ .Values.weCloud.imageRegistry.gcp }}/{{ .Values.profile.repository }}/{{ .Values.profile.image }}:{{ .Values.profile.tag }}
+        ports:
+        - containerPort: 8080
+        env:
+          - name: MYSQL_DB_HOST
+            value: {{ .Values.profile.mysql.host | quote }}
+          - name: MYSQL_DB_PORT
+            value: {{ .Values.profile.mysql.port | quote }}
+          - name: MYSQL_DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: profile-secret
+                key: mysql-username
+          - name: MYSQL_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: profile-secret
+                key: mysql-password

@@ -3,26 +3,26 @@ kind: Ingress
 metadata:
   name: profile-ingress
 spec:
-  ingressClassName: profile-nginx
+  ingressClassName: nginx
   rules:
   - http:
       paths:
       - path: /chat
-        pathType: exact
+        pathType: Prefix
         backend:
           service:
             name: spring-chat-service
             port:
               number: 80
       - path: /login
-        pathType: exact
+        pathType: Prefix
         backend:
           service:
             name: spring-login-service
             port:
               number: 80
       - path: /profile
-        pathType: exact
+        pathType: Prefix
         backend:
           service:
             name: spring-profile-service

@@ -1,1 +1,12 @@
-# TODO: Implement the service configuration for the profile service
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.profile.releaseName }}-service
+spec:
+  type: {{ .Values.profile.service.type }}
+  selector:
+    app: {{ .Values.profile.releaseName }}
+  ports:
+    - protocol: TCP
+      port: {{ .Values.profile.service.port }}
+      targetPort: {{ .Values.profile.service.targetPort }}
