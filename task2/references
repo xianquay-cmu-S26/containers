@@ -2,17 +2,23 @@
     "referenceGuide" : "Cite all the reference sources in the required format. Proper citations will help you avoid unnecessary trouble. Read JSON grammar from Internet if needed.",
     "websites":[  
         {  
-            "title":"<title of the page>",
-            "url":"<url>",
-            "code":"<in which code you use the snippet or the idea>",
-            "description":"<additional information you find it necessary to provide>"
-        }
+            "title":"Kubernetes Deployment",
+            "url":"https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+            "code":"deployment.yaml",
+            "description":"yaml writing reference"
+        },
+	{
+            "title":"Kubernetes Services",
+            "url":"https://kubernetes.io/docs/concepts/services-networking/service/",
+            "code":"service.yaml",
+            "description":"yaml writing reference"
+	}
     ],
     "collaborators":[
         {
-            "submissionUsername":"<collaborator submissionUsername>",
-            "collaborationType":"<I helped X, X helped me, or we helped each other>",
-            "description":"<describe the idea you shared>"
+            "submissionUsername":"no collaborator",
+            "collaborationType":"",
+            "description":""
         }
     ]
 }

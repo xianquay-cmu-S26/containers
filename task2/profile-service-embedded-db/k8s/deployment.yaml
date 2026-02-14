@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-profile-container
-        image: clouduser/profile-service:1.0.0
+        image: us-east1-docker.pkg.dev/gcp-docker-kubernetes-486700/profile-service/clouduser/profile-service:0.1.0
         ports:
         - containerPort: 8080
