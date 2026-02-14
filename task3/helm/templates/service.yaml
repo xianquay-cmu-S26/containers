@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: spring-profile-service
+  name: {{ .Values.profile.releaseName }}-service
 spec:
-  type: LoadBalancer
+  type: {{ .Values.profile.service.type }}
   selector:
-    app: spring-profile
+    app: {{ .Values.profile.releaseName }}
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8080
+      port: {{ .Values.profile.service.port }}
+      targetPort: {{ .Values.profile.service.targetPort }}

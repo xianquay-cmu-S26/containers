@@ -1,21 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-profile-deployment
+  name: {{ .Values.profile.releaseName }}-deployment
   labels:
-    app: spring-profile
+    app: {{ .Values.profile.releaseName }}
 spec:
-  replicas: 3
+  replicas: {{ .Values.profile.replicaCount }}
   selector:
     matchLabels:
-      app: spring-profile
+      app: {{ .Values.profile.releaseName }}
   template:
     metadata:
       labels:
-        app: spring-profile
+        app: {{ .Values.profile.releaseName }}
     spec:
       containers:
-      - name: spring-profile-container
-        image: us-east1-docker.pkg.dev/gcp-docker-kubernetes-486700/profile-service/clouduser/profile-service:0.1.0
+      - name: {{ .Values.profile.releaseName }}-container
+        image: {{ .Values.weCloud.imageRegistry.gcp }}/{{ .Values.profile.repository }}/{{ .Values.profile.image }}:{{ .Values.profile.tag }}
         ports:
         - containerPort: 8080
+          env:
+            - name: MYSQL_DB_HOST
+              value: {{ .Values.profile.mysql.host }}
+            - name: MYSQL_DB_PORT
+              value: {{ .Values.profile.mysql.port }}
+            - name: MYSQL_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: profile-secret
+                  key: mysql-username
+            - name: MYSQL_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: profile-secret
+                  key: mysql-password
