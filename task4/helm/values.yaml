@@ -39,7 +39,7 @@ chat:
     port: "3306"
 
 login:
-  chatEndpoints: "http://104.196.104.107"
+  chatEndpoints: "104.196.104.107"
   releaseName: "spring-login"
   replicaCount: 3
   repository: profile-service
