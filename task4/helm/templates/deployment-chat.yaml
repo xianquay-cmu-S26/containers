@@ -40,7 +40,7 @@ spec:
             value: {{ .Values.redis.port | quote }}
           - name: SPRING_REDIS_PASSWORD
             valueFrom:
-            secretKeyRef:
+              secretKeyRef:
                 name: {{ .Values.redis.passwordSecret }}
                 key: {{ .Values.redis.passwordKey }}
           - name: LIST_OF_PROFILE_ENDPOINTS
