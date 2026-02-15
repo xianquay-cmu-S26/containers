@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.login.releaseName }}-config
+data:
+  MYSQL_DB_HOST: {{ .Values.login.mysql.host | quote }}
+  MYSQL_DB_PORT: {{ .Values.login.mysql.port | quote }}
+  CHAT_ENDPOINT: {{ .Values.login.chatEndpoints | quote }}
