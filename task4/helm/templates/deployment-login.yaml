@@ -34,5 +34,5 @@ spec:
               secretKeyRef:
                 name: login-secret
                 key: mysql-password
-          - name: CHAT_ENDPOINTS
+          - name: CHAT_ENDPOINT
             value: {{ .Values.login.chatEndpoints | quote }}
