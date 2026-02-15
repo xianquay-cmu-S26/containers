@@ -34,5 +34,14 @@ spec:
               secretKeyRef:
                 name: chat-secret
                 key: mysql-password
+          - name: SPRING_REDIS_HOST
+            value: {{ .Values.redis.host | quote }}
+          - name: SPRING_REDIS_PORT
+            value: {{ .Values.redis.port | quote }}
+          - name: SPRING_REDIS_PASSWORD
+            valueFrom:
+            secretKeyRef:
+                name: {{ .Values.redis.passwordSecret }}
+                key: {{ .Values.redis.passwordKey }}
           - name: LIST_OF_PROFILE_ENDPOINTS
             value: {{ .Values.chat.profileEndpoints | quote }}

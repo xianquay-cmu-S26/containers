@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: redis
-          image: "{{ .Values.redis.image }}"
+          image: {{ .Values.redis.image | quote }}
           ports:
             - containerPort: {{ .Values.redis.service.targetPort }}
           volumeMounts:
