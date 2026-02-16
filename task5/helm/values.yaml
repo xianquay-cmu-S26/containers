@@ -1,13 +1,11 @@
 weCloud:
   imageRegistry:
     gcp: us-east1-docker.pkg.dev/gcp-docker-kubernetes-486700 
+    azure: wecloudacr1.azurecr.io
 
 profile:
   releaseName: "spring-profile"
   replicaCount: 3
-  repository: profile-service
-  image: clouduser/profile-service
-  tag: "0.0.1"
   service:
     type: NodePort
     port: 80
@@ -25,12 +23,9 @@ profile:
     cpuRequest: 200m
 
 chat:
-  profileEndpoints: "spring-profile-service.default.svc.cluster.local" 
+  profileEndpoints: "spring-profile-service.default.svc.cluster.local,20.241.229.209" 
   releaseName: "spring-chat"
   replicaCount: 3
-  repository: profile-service
-  image: clouduser/chat-service
-  tag: "0.0.1"
   service:
     type: NodePort
     port: 80
@@ -51,9 +46,6 @@ login:
   chatEndpoints: "104.196.104.107"
   releaseName: "spring-login"
   replicaCount: 3
-  repository: profile-service
-  image: clouduser/login-service
-  tag: "0.0.1"
   service:
     type: NodePort
     port: 80

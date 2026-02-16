@@ -1,9 +1,10 @@
+{{- if eq .Values.global.environment "gcp" }}  
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.chat.releaseName }}-deployment
   labels:
-    app: {{ .Values.chat.releaseName }}
+    app: {{ .Values.chat.releaseName }}  
 spec:
   replicas: {{ .Values.chat.replicaCount }}
   selector:
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.chat.releaseName }}-container
-        image: {{ .Values.weCloud.imageRegistry.gcp }}/{{ .Values.chat.repository }}/{{ .Values.chat.image }}:{{ .Values.chat.tag }}
+        image: {{ .Values.global.imageRegistry }}/{{ .Values.chat.repository }}/{{ .Values.chat.image }}:{{ .Values.chat.tag }}
         ports:
         - containerPort: 8080
         resources:
@@ -48,11 +49,12 @@ spec:
                 key: {{ .Values.redis.passwordKey }}
           - name: LIST_OF_PROFILE_ENDPOINTS
             value: {{ .Values.chat.profileEndpoints | quote }}
+{{ - end }}
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: spring-profile-autoscaling
+  name: spring-chat-autoscaling
   namespace: default
 spec:
   scaleTargetRef:

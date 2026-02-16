@@ -1,0 +1,14 @@
+global:
+  environment: azure
+  imageRegistry: "wecloudacr1.azurecr.io"
+  ingressClassName: "webapprouting.kubernetes.azure.com"   
+
+login:
+  imageRepo: "wecloud"
+  imageName: "clouduser/login-service"
+  tag: "1.1.0"
+
+profile:
+  imageRepo: "wecloud"
+  imageName: "clouduser/profile-service"
+  tag: "1.1.0"

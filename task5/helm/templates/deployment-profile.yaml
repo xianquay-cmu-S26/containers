@@ -16,7 +16,13 @@ spec:
     spec:
       containers:
       - name: {{ .Values.profile.releaseName }}-container
-        image: {{ .Values.weCloud.imageRegistry.gcp }}/{{ .Values.profile.repository }}/{{ .Values.profile.image }}:{{ .Values.profile.tag }}
+
+        {{- if eq .Values.global.environment "gcp" }}
+        image: {{ .Values.global.imageRegistry }}/{{ .Values.profile.imageRepo }}/{{ .Values.profile.imageName }}:{{ .Values.profile.tag }}
+        {{- else if eq .Values.global.environment "azure" }}
+        image: {{ .Values.global.imageRegistry }}/{{ .Values.profile.imageRepo }}/{{ .Values.profile.imageName }}:{{ .Values.profile.tag }}
+        {{- end }}
+
         ports:
         - containerPort: 8080
         resources:

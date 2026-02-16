@@ -1,0 +1,21 @@
+global:
+  environment: gcp
+  imageRegistry: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-486700"
+  ingressClassName: "nginx"
+  externalBaseUrl: "104.196.104.107"   
+
+chat:
+  imageRepo: "profile-service"
+  imageName: "clouduser/chat-service"
+  tag: "0.0.1"
+
+login:
+  imageRepo: "profile-service"
+  imageName: "clouduser/login-service"
+  tag: "0.0.1"
+  chatEndpointBase: "104.196.104.107"  
+
+profile:
+  imageRepo: "profile-service"
+  imageName: "clouduser/profile-service"
+  tag: "0.0.1"
