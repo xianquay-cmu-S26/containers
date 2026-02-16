@@ -4,7 +4,6 @@ global:
   ingressClassName: "webapprouting.kubernetes.azure.com"   
 
 login:
-  imageRepo: "wecloud"
   imageName: "clouduser/login-service"
   tag: "1.1.0"
   mysql:
@@ -20,7 +19,6 @@ login:
     cpuRequest: 200m
 
 profile:
-  imageRepo: "wecloud"
   imageName: "clouduser/profile-service"
   tag: "1.1.0"
   mysql:

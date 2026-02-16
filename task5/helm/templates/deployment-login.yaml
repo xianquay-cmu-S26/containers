@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
       - name: {{ .Values.login.releaseName }}-container
-      
+
         {{- if eq .Values.global.environment "gcp" }}
         image: {{ .Values.global.imageRegistry }}/{{ .Values.login.imageRepo }}/{{ .Values.login.imageName }}:{{ .Values.login.tag }}
         {{- else if eq .Values.global.environment "azure" }}
-        image: {{ .Values.global.imageRegistry }}/{{ .Values.login.imageRepo }}/{{ .Values.login.imageName }}:{{ .Values.login.tag }}
+        image: {{ .Values.global.imageRegistry }}/{{ .Values.login.imageName }}:{{ .Values.login.tag }}
         {{- end }}
 
         ports:
