@@ -39,7 +39,6 @@ resource "azurerm_cdn_frontdoor_origin_group" "wecloudbackendloginprofile" {
   }
 
   health_probe {
-    name                = "wecloudbackendloginprofile"
     path                = "/login"
     protocol            = "Http"
     request_type        = "HEAD"
@@ -88,7 +87,6 @@ resource "azurerm_cdn_frontdoor_origin_group" "wecloudbackendchat" {
   }
 
   health_probe {
-    name                = "wecloudbackendchat"
     path                = "/chat"
     protocol            = "Http"
     request_type        = "HEAD"
