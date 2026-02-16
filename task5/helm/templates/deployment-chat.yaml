@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.chat.releaseName }}-container
-        image: {{ .Values.global.imageRegistry }}/{{ .Values.chat.repository }}/{{ .Values.chat.image }}:{{ .Values.chat.tag }}
+        image: {{ .Values.global.imageRegistry }}/{{ .Values.chat.imageRepo }}/{{ .Values.chat.imageName }}:{{ .Values.chat.tag }}
         ports:
         - containerPort: 8080
         resources:
