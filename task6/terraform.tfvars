@@ -1,24 +1,5 @@
-variable "frontdoor_name" {
-  description = "Name for the Front Door instance"
-  default     = "wecloud"
-}
-
-variable "frontdoor_endpoint" {
-  description = "Endpoint for the Front Door instance"
-  default     = "wecloud-xianquay-fd"
-}
-
-variable "resource_group_name" {
-  description = "Resource group name in Azure"
-  default     = "wecloudresource"
-}
-
-variable "gcp_ingress_external_ip" {
-  description = "Ingress external IP in GCP"
-  default     = "104.196.104.107"
-}
-
-variable "azure_ingress_external_ip" {
-  description = "Ingress external IP in Azure"
-  default     = "20.241.229.209"
-}
+frontdoor_name            = "wecloud
+frontdoor_endpoint        = "wecloud-xianquay-fd"
+resource_group_name       = "wecloudresource
+gcp_ingress_external_ip   = "104.196.104.107"
+azure_ingress_external_ip = "20.241.229.209"
