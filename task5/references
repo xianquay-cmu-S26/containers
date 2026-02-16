@@ -2,17 +2,23 @@
     "referenceGuide" : "Cite all the reference sources in the required format. Proper citations will help you avoid unnecessary trouble. Read JSON grammar from Internet if needed.",
     "websites":[  
         {  
-            "title":"<title of the page>",
-            "url":"<url>",
-            "code":"<in which code you use the snippet or the idea>",
-            "description":"<additional information you find it necessary to provide>"
+            "title":"hpa",
+            "url":"https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/, https://docs.cloud.google.com/kubernetes-engine/docs/how-to/resizing-a-cluster",
+            "code":"hpa",
+            "description":"hpa documentation and cluster resizing documentation"
+        }
+        , {  
+            "title":"acr and aks",
+            "url":"https://learn.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr#log-in-to-container-registry, https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?tabs=azure-cli",
+            "code":"acr-aks",
+            "description":"acr and aks documentation"
         }
     ],
     "collaborators":[
         {
-            "submissionUsername":"<collaborator submissionUsername>",
-            "collaborationType":"<I helped X, X helped me, or we helped each other>",
-            "description":"<describe the idea you shared>"
+            "submissionUsername":"NA",
+            "collaborationType":"NA",
+            "description":"NA"
         }
     ]
 }
