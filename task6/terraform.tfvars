@@ -1,5 +1,5 @@
-frontdoor_name            = "wecloud"
+frontdoor_name            = "wecloudfd"
 frontdoor_endpoint        = "wecloud-xianquay-fd"
-resource_group_name       = "wecloudresource"
+resource_group_name       = "wecloud"
 gcp_ingress_external_ip   = "104.196.104.107"
 azure_ingress_external_ip = "20.241.229.209"
