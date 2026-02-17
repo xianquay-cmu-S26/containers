@@ -49,7 +49,6 @@ spec:
                 key: {{ .Values.redis.passwordKey }}
           - name: LIST_OF_PROFILE_ENDPOINTS
             value: {{ .Values.chat.profileEndpoints | quote }}
-{{- end }}
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -64,3 +63,4 @@ spec:
   minReplicas: 1
   maxReplicas: 5
   targetCPUUtilizationPercentage: 50
+{{- end }}
