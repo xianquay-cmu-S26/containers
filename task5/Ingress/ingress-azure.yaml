@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: azure-ingress
 spec:
-  ingressClassName: webapprouting.kubernetes.azure.com
+  ingressClassName: nginx
   rules:
   - http:
       paths:
